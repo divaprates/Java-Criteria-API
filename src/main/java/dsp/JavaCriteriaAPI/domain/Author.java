@@ -1,7 +1,6 @@
 package dsp.JavaCriteriaAPI.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -9,10 +8,28 @@ import java.util.List;
 @Entity
 public class Author {
 
-    private int id;
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private Integer id;
     private String name;
 
-    @OneToMany(mappedBy = "book")
-    private List<Book> books;
+//    @OneToMany()
+//    private List<Book> books;
 
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }
