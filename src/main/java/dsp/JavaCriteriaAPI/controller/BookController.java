@@ -3,7 +3,7 @@ package dsp.JavaCriteriaAPI.controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RequestMapping("/author")
+@RequestMapping("/book")
 @RestController
-public class AuthorController {
+public class BookController {
 }

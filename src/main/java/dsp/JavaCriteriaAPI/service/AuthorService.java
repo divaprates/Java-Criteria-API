@@ -1,4 +1,6 @@
 package dsp.JavaCriteriaAPI.service;
 
-public interface AuthorService {
+import org.springframework.stereotype.Service;
+
+public interface AuthorService{
 }
