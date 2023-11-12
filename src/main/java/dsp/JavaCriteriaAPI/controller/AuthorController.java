@@ -24,7 +24,7 @@ public class AuthorController {
     @GetMapping()
     public ResponseEntity<List<AuthorDTO>> findAll() {
 
-        List<AuthorDTO> response = service.findAll().stream()
+        List<AuthorDTO> response = service.authorFindAll().stream()
                 .map(AuthorDTO::new)
                 .toList();
 
