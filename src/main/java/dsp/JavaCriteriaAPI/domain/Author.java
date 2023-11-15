@@ -13,8 +13,8 @@ public class Author {
     private Integer id;
     private String name;
 
-//    @OneToMany()
-//    private List<Book> books;
+    @OneToMany(mappedBy = "author")
+    private List<Book> books;
 
 
     public Integer getId() {
