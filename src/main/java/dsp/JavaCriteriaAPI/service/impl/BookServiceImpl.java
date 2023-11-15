@@ -33,11 +33,12 @@ public class BookServiceImpl implements BookService {
     public List<Book> bookFindAll() {
         CriteriaBuilder criteriaBuilder = this.entityManager.getCriteriaBuilder();
         CriteriaQuery<Book> query = criteriaBuilder.createQuery(Book.class);
-        Root<Book> book = query.from(Book.class);
+        Root<Book> from = query.from(Book.class);
+        query.select(from);
 
-        TypedQuery<Book> queryResult = this.entityManager.createQuery(query);
+        List<Book> result = this.entityManager.createQuery(query).getResultList();
 
-        return queryResult.getResultList();
+        return result;
     }
 
 }

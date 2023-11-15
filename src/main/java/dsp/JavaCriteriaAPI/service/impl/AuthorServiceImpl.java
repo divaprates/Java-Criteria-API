@@ -31,10 +31,11 @@ public class AuthorServiceImpl implements AuthorService {
     public List<Author> authorFindAll() {
         CriteriaBuilder criteriaBuilder = this.entityManager.getCriteriaBuilder();
         CriteriaQuery<Author> query = criteriaBuilder.createQuery(Author.class);
-        Root<Author> author = query.from(Author.class);
+        Root<Author> from = query.from(Author.class);
+        query.select(from);
 
-        TypedQuery<Author> queryResult = this.entityManager.createQuery(query);
+        List<Author> result = this.entityManager.createQuery(query).getResultList();
 
-        return queryResult.getResultList();
+        return result;
     }
 }
