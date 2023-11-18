@@ -30,7 +30,7 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public List<Book> bookFindAll() {
+    public List<Book> findAll() {
         CriteriaBuilder criteriaBuilder = this.entityManager.getCriteriaBuilder();
         CriteriaQuery<Book> query = criteriaBuilder.createQuery(Book.class);
         Root<Book> from = query.from(Book.class);
@@ -39,6 +39,19 @@ public class BookServiceImpl implements BookService {
         List<Book> result = this.entityManager.createQuery(query).getResultList();
 
         return result;
+    }
+
+    @Override
+    public List<Book> findBookToId(Integer id) {
+        CriteriaBuilder criteriaBuilder = this.entityManager.getCriteriaBuilder();
+        CriteriaQuery<Book> query = criteriaBuilder.createQuery(Book.class);
+        Root<Book> from = query.from(Book.class);
+        query.select(from);
+        query.where(criteriaBuilder.equal(from.get("id"), id));
+
+        List<Book> result = this.entityManager.createQuery(query).getResultList();
+        return result;
+
     }
 
 }
